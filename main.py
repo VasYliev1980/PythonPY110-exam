@@ -58,3 +58,21 @@ def gen_dir(num:int = 1) -> dir: # Функция-генератор слова�
             }
         }
         pk += 1
+
+def main() -> None:
+    file_name = "dir.json"
+
+    # Генерация и запись словарей в файл
+    gen = gen_dir(5)
+    with open(file_name, "w") as fout:
+        fout.write(json.dumps(list(next(gen) for _ in range(100)), indent=4, ensure_ascii=False))
+
+
+    # Проверка записанных в файл словарей
+    with open(file_name) as fin:
+        for s in fin:
+            print(s, end="")
+
+
+if __name__ == "__main__":
+    main()
