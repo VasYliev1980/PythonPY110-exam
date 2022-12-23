@@ -48,6 +48,13 @@ def gen_dir(num:int = 1) -> dir: # Функция-генератор слова�
             "model": conf.MODEL,
             "pk":pk,
             "fields":{
-                "title":
+                "title": get_title(),
+                "year": get_year(),
+                "pages": get_pages(),
+                "isbn13": get_isbn13(),
+                "raiting": get_raiting(),
+                "price": get_price(),
+                "authors": get_authors()
             }
         }
+        pk += 1
